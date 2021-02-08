@@ -2,12 +2,9 @@ import { Request, ResponseToolkit, Server } from '@hapi/hapi'
 import Joi from 'joi'
 import { Boom } from '@hapi/boom'
 import { happiSwaggerPlugin } from './plugins/swagger'
-import { initSequelize } from '../libs/sequelize'
-import { quoteRoutes } from '../app/quotes/quote.container'
 import { probesRoutes } from '../app/probes/probes.container'
 import { Logger } from '../libs/logger'
 import { listenHandlerErrorsEvents } from './event-listeners/on-handler-error.event-listener'
-import { listenServerStopEvent } from './event-listeners/on-server-stop.event-listener'
 
 export default async (config: Map<string, any>, logger: Logger): Promise<Server> => {
   const server = new Server({
@@ -30,13 +27,10 @@ export default async (config: Map<string, any>, logger: Logger): Promise<Server>
 
   server.ext('onPreResponse', setBoomErrorDataToResponse)
   server.validator(Joi)
-  server.route(quoteRoutes())
   server.route(probesRoutes())
   await server.register(happiSwaggerPlugin(config))
-  const sequelize = await initSequelize(config)
 
   server.events.on({ name: 'request', tags: true, filter: { tags: ['handler', 'error'], all: true } }, listenHandlerErrorsEvents(logger))
-  server.events.on('stop', listenServerStopEvent(sequelize))
 
   return server
 }

@@ -1,7 +1,6 @@
 import { dateFaker } from './utils/date-faker.test-utils'
 import { HttpServerForTesting, newProdLikeServer, newMinimalServer } from './utils/server.test-utils'
 import chai from './utils/chai.test-utils'
-import { dbTestUtils } from './utils/db.test-utils'
 const config = require('./utils/config.test-utils')
 
 const expect = chai.expect
@@ -13,7 +12,6 @@ export {
   chai,
   expect,
   dateFaker,
-  dbTestUtils,
   HttpServerForTesting,
   newProdLikeServer,
   newMinimalServer
