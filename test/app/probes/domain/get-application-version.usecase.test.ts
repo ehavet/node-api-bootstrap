@@ -5,8 +5,8 @@ import { ApplicationVersion } from '../../../../src/app/probes/domain/applicatio
 import { expect } from '../../../test-utils'
 
 describe('Usecase - Get application version', async () => {
-  const expectedApplicationVersion: ApplicationVersion = { version: '1.2.34' }
-  const applicationInquirer: ApplicationInquirer = new AppnameApplicationInquirer({ version: '1.2.34' })
+  const expectedApplicationVersion: ApplicationVersion = { version: '1.2.32' }
+  const applicationInquirer: ApplicationInquirer = new AppnameApplicationInquirer({ version: '1.2.32' })
   const getApplicationVersion: GetApplicationVersion = GetApplicationVersion.factory(applicationInquirer)
 
   it('should return an application version object', async () => {
