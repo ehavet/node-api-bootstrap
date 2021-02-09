@@ -30,6 +30,6 @@ module.exports = {
     'no-useless-constructor': 'off',
     'mocha/no-exclusive-tests': 'error',
     'import/export': 'off',
-    'no-redeclare': 'off',
+    'no-redeclare': 'off'
   }
 }
