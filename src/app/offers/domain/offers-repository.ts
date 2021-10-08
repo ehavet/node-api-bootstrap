@@ -1,3 +1,5 @@
+import { Offer } from './offer'
+
 export interface OffersRepository {
-    get(): string
+    get(id): Offer
 }

@@ -1,7 +1,7 @@
 {
   "name": "node-api-bootstrap",
   "version": "0.0.0",
-  "description": "api bootstrap with node js",
+  "description": "An API bootstrap with Node.js and hapi",
   "license": "UNLICENSED",
   "author": "octo",
   "repository": "/node-api-bootstrap",
@@ -15,12 +15,10 @@
     "build:dev": "tsc --sourceMap && copyfiles -u 1 ./src/app/**/*.pdf ./dist/",
     "lint": "eslint '{src,test}/**/*.ts'",
     "lint:fix": "yarn lint --fix",
-    "containers:api:start": "docker-compose up -d api",
     "start": "node ./dist/start-server.js",
     "dev": "nodemon --watch src -e ts --exec yarn dev:start",
     "dev:start": "yarn build:dev && yarn start",
-    "test": "NODE_ENV=test nyc mocha 'test/**/*.{js,ts}' --require ts-node/register",
-    "test:ci": "NODE_ENV=test nyc --reporter text --reporter html mocha 'test/**/*.{js,ts}' --require ts-node/register"
+    "test": "NODE_ENV=test nyc mocha 'test/**/*.{js,ts}' --require ts-node/register"
   },
   "main": "server.js",
   "nyc": {

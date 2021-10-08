@@ -1,10 +1,10 @@
 import { OffersRepository } from '../domain/offers-repository'
-import { ApplicationConfig } from '../../../configs/application.config'
+import { Offer } from '../domain/offer'
 
 export class OffersRepositoryImpl implements OffersRepository {
-  constructor (private config: ApplicationConfig) {}
+  constructor () {}
 
-  get (): string {
-    return this.config.version
+  get (id): Offer {
+    return { id: id }
   }
 }

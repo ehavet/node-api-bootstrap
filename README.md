@@ -1,19 +1,18 @@
 # node-api-bootstrap
 
-## Prerequisites
+## Prérequis
 
-### Tools
+### Outils
 
-To work on the API, you will first need to install the following :
+Installer les outils suivants :
 
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (see [package.json](/package.json) "engine.node" field for the version to use, and we advise to manage NodeJS versions locally with [n](https://github.com/tj/n))
-* [Docker](https://docs.docker.com/get-docker/)
-* [Yarn](https://classic.yarnpkg.com/en/docs/install)
+* [Git](https://git-scm.com/book/fr/v2/D%C3%A9marrage-rapide-Installation-de-Git)
+* [Node.js](https://nodejs.org/fr/download/package-manager/)
+* [Yarn](https://yarnpkg.com/getting-started/install)
 
-### Environment variables
+### Variables d'environnement
 
-Create a `.env` file in the root directory. You can take the `.env.example` as an example.
+Créer un fichier `.env` à la racine du projet. Vous pouvez prendre exemple sur `.env.example`.
 
 ## Installation
 
@@ -21,36 +20,24 @@ Create a `.env` file in the root directory. You can take the `.env.example` as a
 yarn install --frozen-lockfile
 ```
 
-## Usage
-
-### Server
-
-launch the API :
+## Lancement
 
 ```bash
 yarn start
 ```
-Or
+ou
 ```
 yarn dev
 ```
 
-to start with watch mode. This can be convenient in development mode to avoid restarting manually the server after each modification in the code.
+Pour lancer l'API en mode watch afin d'éviter d'avoir a redémarrer le serveur à chaque modification du code.
 
-The API can be accessed at [http://localhost:8080](http://localhost:8080)
+Une fois lancée l'API est accessible ici => [http://localhost:8080](http://localhost:8080)
 
-For the API documentation, go to [http://localhost:8080/documentation](http://localhost:8080/documentation)
+Pour accéder à la documentation => [http://localhost:8080/documentation](http://localhost:8080/documentation)
 
-### Tests
-
-The automated tests can be launched with the command :
+## Tests
 
 ```bash
 yarn test
 ```
-
-This will run all the automated tests and generate the appropriate coverage report.
-
-## Contributing
-
-Please refer to [CONTRIBUTING.md](./docs/CONTRIBUTING.md) for contribution guidelines.
