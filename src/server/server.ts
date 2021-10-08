@@ -40,10 +40,15 @@ function setBoomErrorDataToResponse (request: Request, h: ResponseToolkit) {
   if (!response.isBoom) {
     return h.continue
   }
+  
   const is4xx = response.output.statusCode >= 400 && response.output.statusCode < 500
   if (is4xx && response.data) {
     // @ts-ignore
     response.output.payload.data = response.data
+    return h.continue
   }
+
+  response.output.statusCode = 500
+  response.output.payload.data = `An internal server error occurred : ${response.message}`
   return h.continue
 }

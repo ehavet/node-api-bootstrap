@@ -6,9 +6,9 @@ async function startServer () {
   try {
     const server = await createServer(config, logger)
     await server.start()
-    logger.info(`Server running at: ${server.info.uri}`)
+    logger.info(`Server running at: ${server.info.uri}/offers`)
   } catch (error) {
-    logger.fatal('Could not start server', { error })
+    logger.fatal(`Could not start server : ${JSON.stringify(error)}`)
     process.exit(1)
   }
 }

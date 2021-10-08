@@ -41,4 +41,8 @@ export class OffersRepositoryImpl implements OffersRepository {
     
     return offerFounded;
   }
+
+  create(newOffer: Offer): void {
+    this.offers.push(newOffer);
+  }
 }
