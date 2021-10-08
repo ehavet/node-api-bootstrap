@@ -2,16 +2,18 @@
 
 ## Prerequisites
 
-Before starting to work on the API, you will first need to install the following :
+### Tools
+
+To work on the API, you will first need to install the following :
 
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/) (see [package.json](/package.json) "engine.node" field for the version to use, and we advise to manage NodeJS versions locally with [n](https://github.com/tj/n))
 * [Docker](https://docs.docker.com/get-docker/)
 * [Yarn](https://classic.yarnpkg.com/en/docs/install)
 
-And make sure that :
+### Environment variables
 
-* You have a `.env` file at the root of the project (you can take the `.env.example` as an example)
+Create a `.env` file in the root directory. You can take the `.env.example` as an example.
 
 ## Installation
 

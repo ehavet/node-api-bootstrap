@@ -25,7 +25,7 @@ COPY --from=build /api/.sequelizerc /api/.sequelizerc
 WORKDIR /api
 
 EXPOSE 8080
-ENV FALCO_API_PORT=8080
+ENV API_PORT=8080
 ENV NODE_ENV="production"
 USER 65534
 

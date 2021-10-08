@@ -1,13 +1,13 @@
 import * as supertest from 'supertest'
 import { HttpServerForTesting, newMinimalServer } from '../../../../utils/server.test-utils'
-import { container, probesRoutes } from '../../../../../src/app/probes/probes.container'
+import { container, offersRoutes } from '../../../../../src/app/container'
 import { expect, sinon } from '../../../../test-utils'
 
 describe('Probes - API - Integ', async () => {
   let httpServer: HttpServerForTesting
 
   before(async () => {
-    httpServer = await newMinimalServer(probesRoutes())
+    httpServer = await newMinimalServer(offersRoutes())
   })
 
   describe('GET /probes/version', () => {

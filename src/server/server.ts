@@ -2,13 +2,13 @@ import { Request, ResponseToolkit, Server } from '@hapi/hapi'
 import Joi from 'joi'
 import { Boom } from '@hapi/boom'
 import { happiSwaggerPlugin } from './plugins/swagger'
-import { probesRoutes } from '../app/probes/probes.container'
+import { offersRoutes } from '../app/container'
 import { Logger } from '../libs/logger'
 import { listenHandlerErrorsEvents } from './event-listeners/on-handler-error.event-listener'
 
 export default async (config: Map<string, any>, logger: Logger): Promise<Server> => {
   const server = new Server({
-    port: config.get('FALCO_API_PORT'),
+    port: config.get('API_PORT'),
     routes: {
       cors: {
         exposedHeaders: ['WWW-Authenticate', 'Server-Authorization', 'Location', 'Etag']
@@ -27,7 +27,7 @@ export default async (config: Map<string, any>, logger: Logger): Promise<Server>
 
   server.ext('onPreResponse', setBoomErrorDataToResponse)
   server.validator(Joi)
-  server.route(probesRoutes())
+  server.route(offersRoutes())
   await server.register(happiSwaggerPlugin(config))
 
   server.events.on({ name: 'request', tags: true, filter: { tags: ['handler', 'error'], all: true } }, listenHandlerErrorsEvents(logger))

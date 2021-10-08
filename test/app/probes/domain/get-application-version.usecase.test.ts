@@ -1,16 +1,16 @@
-import { GetApplicationVersion } from '../../../../src/app/probes/domain/get-application-version.usecase'
-import { ApplicationInquirer } from '../../../../src/app/probes/domain/application-inquirer'
-import { AppnameApplicationInquirer } from '../../../../src/app/probes/infrastructure/appname.application-inquirer'
-import { ApplicationVersion } from '../../../../src/app/probes/domain/application-version'
+import { GetOffers, GetOffersUsecaseFactory } from '../../../../src/app/offers/domain/get-application-version.usecase'
+import { OffersRepository } from '../../../../src/app/offers/domain/offers-repository'
+import { OffersRepositoryImpl } from '../../../../src/app/offers/infrastructure/offers-repository.impl'
+import { Offers } from '../../../../src/app/offers/domain/offers'
 import { expect } from '../../../test-utils'
 
 describe('Usecase - Get application version', async () => {
-  const expectedApplicationVersion: ApplicationVersion = { version: '1.2.32' }
-  const applicationInquirer: ApplicationInquirer = new AppnameApplicationInquirer({ version: '1.2.32' })
-  const getApplicationVersion: GetApplicationVersion = GetApplicationVersion.factory(applicationInquirer)
+  const expectedApplicationVersion: Offers = { version: '1.2.32' }
+  const applicationInquirer: OffersRepository = new OffersRepositoryImpl({ version: '1.2.32' })
+  const getApplicationVersion: GetOffers = GetOffersUsecaseFactory.factory(applicationInquirer)
 
   it('should return an application version object', async () => {
-    const applicationVersion: ApplicationVersion = await getApplicationVersion()
+    const applicationVersion: Offers = await getApplicationVersion()
     expect(applicationVersion).to.deep.equal(expectedApplicationVersion)
   })
 })
