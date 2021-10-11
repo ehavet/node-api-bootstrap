@@ -39,6 +39,27 @@ export default function (container: Container): Array<ServerRoute> {
       },
     },
     {
+      method: "GET",
+      path: "/offers/search",
+      options: {
+        description: "return an offer resource",
+        validate: {
+          query: {
+            q: Joi.string().required(),
+          }
+        }
+      },
+      handler: async (_request, h) => {
+        try {
+          const searchQuery = _request.query.q;
+          const offers: Offer[] = await container.SearchOffers(searchQuery);
+          return h.response({ offers }).code(200);
+        } catch (error: any) {
+          throw Boom.internal(error);
+        }
+      },
+    },
+    {
       method: "POST",
       path: "/offers",
       options: {
